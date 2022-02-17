@@ -1,5 +1,12 @@
-<p>tarot-deck works!</p>
-<button mat-button (click)="shuffleCards()">Shuffle</button>
+<button
+  mat-raised-button
+  color="primary"
+  aria-label="Shuffle Cards"
+  (click)="shuffleCards()"
+>
+  Start game
+  <mat-icon>shuffle</mat-icon>
+</button>
 <!-- Check if apiData.cards is not empty then render -->
 <div *ngIf="apiData?.cards">
   <div class="grid">
@@ -9,6 +16,8 @@
       [card]="card"
       [imagesUrl]="apiData?.imagesUrl"
       [imageBackCard]="apiData?.imageBackCard"
+      [hasChoosenCard]="hasChoosenCard"
+      (setHasChoosenCard)="setHasChoosenCard(true)"
     ></app-tarot-card>
   </div>
 </div>

@@ -1,7 +1,9 @@
 import {
   Component,
   ElementRef,
+  EventEmitter,
   OnInit,
+  Output,
   QueryList,
   ViewChild,
   ViewChildren,
@@ -17,22 +19,30 @@ import { TarotCardComponent } from '../tarot-card/tarot-card.component';
 export class TarotDeckComponent implements OnInit {
   apiData: any;
 
+  hasChoosenCard: boolean = false;
+
+  setHasChoosenCard(Choosen: boolean) {
+    this.hasChoosenCard = Choosen;
+  }
+
+  // Selects the cards from the apiData.cards array
   @ViewChildren(TarotCardComponent) tarotCardList:
     | QueryList<TarotCardComponent>
     | undefined;
 
   constructor(private dataService: DataService, private el: ElementRef) {}
 
+  // Fetch data from the api on init
   ngOnInit(): void {
     this.dataService.fetchData().subscribe((data) => {
       this.apiData = data;
-      console.log('this.cards', this.apiData);
     });
   }
 
   // Shuffle items from apiData.cards array
   public shuffleCards() {
     // Run flipCard function on each card
+    this.setHasChoosenCard(false);
     this.tarotCardList?.forEach((card) => {
       card.showBackCard();
     });
