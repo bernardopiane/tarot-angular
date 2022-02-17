@@ -4,6 +4,7 @@
   width: 162px;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
   cursor: pointer;
+  padding: 0;
 }
 
 /* This container is needed to position the front and back side */
@@ -45,4 +46,10 @@
   background-color: white;
   color: black;
   transform: rotateY(180deg);
+}
+
+
+.card-image{
+  height: 100%;
+  width: 100%;
 }

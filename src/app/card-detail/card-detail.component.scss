@@ -5,3 +5,16 @@
 img {
   padding-right: 1rem;
 }
+
+// On mobile devices, the image is centered and the text is bellow it
+@media (max-width: 468px) {
+  .container {
+    flex-direction: column;
+  }
+  img {
+    padding: 0;
+    max-height: 20vh;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+}

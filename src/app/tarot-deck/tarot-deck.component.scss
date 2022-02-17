@@ -1,12 +1,32 @@
 .grid {
   // Grid with max width of 260px per item
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(162px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   grid-gap: 3rem;
-  padding: 3rem;
+  padding: 0 3rem;
   margin: 0 auto;
+  justify-items: center;
 }
 
-button{
-  float: right;
+button {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1;
+}
+
+// On mobile button width is 100%
+// Grid is 2 items per row
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    // Force fit items
+    grid-auto-flow: dense;
+    justify-content: space-evenly;
+    padding: 1rem;
+  }
+  button {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
 }
