@@ -47,6 +47,9 @@ export class TarotDeckComponent implements OnInit {
       card.showBackCard();
     });
 
-    this.apiData?.cards.sort(() => Math.random() - 0.5);
+    // Wait 1 second before shuffling the cards
+    setTimeout(() => {
+      this.apiData?.cards.sort(() => Math.random() - 0.5);
+    }, 1000);
   }
 }
