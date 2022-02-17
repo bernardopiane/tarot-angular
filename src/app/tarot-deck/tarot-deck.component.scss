@@ -1,0 +1,8 @@
+.grid {
+  // Grid with max width of 260px per item
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(162px, 1fr));
+  grid-gap: 3rem;
+  padding: 3rem;
+  margin: 0 auto;
+}

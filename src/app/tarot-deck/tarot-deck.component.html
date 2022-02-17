@@ -1,0 +1,14 @@
+<p>tarot-deck works!</p>
+<button mat-button (click)="shuffleCards()">Shuffle</button>
+<!-- Check if apiData.cards is not empty then render -->
+<div *ngIf="apiData?.cards">
+  <div class="grid">
+    <!-- Loop all card in apiData.cards and display app-tarot-card -->
+    <app-tarot-card
+      *ngFor="let card of apiData.cards"
+      [card]="card"
+      [imagesUrl]="apiData?.imagesUrl"
+      [imageBackCard]="apiData?.imageBackCard"
+    ></app-tarot-card>
+  </div>
+</div>

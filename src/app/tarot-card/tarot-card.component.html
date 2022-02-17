@@ -1,0 +1,16 @@
+<mat-card class="card" (click)="flipCard()">
+  <div class="card-inner">
+    <div class="card-front">
+      <div class="card-image">
+        <img [src]="imagesUrl + card.image" alt="{{ card.name }}" />
+      </div>
+    </div>
+    <div
+      class="card-back"
+      style="background-image: url('{{ imageBackCard }}');"
+    >
+    </div>
+  </div>
+</mat-card>
+
+<!--   style="background-image: url('{{ imagesUrl + card.image }}');" -->
